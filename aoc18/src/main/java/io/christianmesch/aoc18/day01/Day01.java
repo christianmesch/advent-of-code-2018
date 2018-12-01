@@ -1,15 +1,16 @@
-package io.christianmesch.day01;
+package io.christianmesch.aoc18.day01;
 
+import io.christianmesch.aoc18.utils.InputUtils;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Day01 {
+
+  private static final String INPUT_FILENAME = "/day1.txt";
+
   public static void main(String... args) {
     Day01 day = new Day01();
     try {
@@ -20,19 +21,14 @@ public class Day01 {
     }
   }
 
-  private List<String> readInput() throws URISyntaxException, IOException {
-    Path inputPath = Paths.get(Day01.class.getResource("/input.txt").toURI());
-    return Files.readAllLines(inputPath);
-  }
-
   private void puzzle1() throws URISyntaxException, IOException {
-    int sum = readInput().stream().mapToInt(Integer::valueOf).sum();
+    int sum = InputUtils.read(INPUT_FILENAME).stream().mapToInt(Integer::valueOf).sum();
 
     System.out.println(sum);
   }
 
   private void puzzle2() throws IOException, URISyntaxException {
-    List<Integer> input = readInput().stream().map(Integer::valueOf).collect(Collectors.toList());
+    List<Integer> input = InputUtils.read(INPUT_FILENAME).stream().map(Integer::valueOf).collect(Collectors.toList());
     List<Integer> foundFrequencies = new ArrayList<>();
 
     int lastFrequency = 0;
