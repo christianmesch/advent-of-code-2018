@@ -2,6 +2,7 @@ package io.christianmesch.aoc18.day02;
 
 import io.christianmesch.aoc18.utils.InputUtils;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Day02 {
@@ -12,6 +13,7 @@ public class Day02 {
     Day02 day = new Day02();
     try {
       System.out.println(day.part1());
+      System.out.println(day.part2());
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -37,5 +39,40 @@ public class Day02 {
     }
 
     return twice * thrice;
+  }
+
+  private String part2() throws Exception {
+    List<String> input = InputUtils.read(INPUT_FILENAME);
+    String result;
+
+    for (int i = 0; i < input.size(); i++) {
+      String lineA = input.get(i);
+      for (int j = i + 1; j < input.size(); j++) {
+        String lineB = input.get(j);
+        int diffAt = compareStrings(lineA, lineB);
+
+        if (diffAt != -1) {
+          return lineA.substring(0, diffAt) + lineA.substring(diffAt + 1);
+        }
+      }
+    }
+
+    return "None found";
+  }
+
+  private int compareStrings(String a, String b) {
+    boolean foundDiff = false;
+    int diffAt = -1;
+
+    for (int i = 0; i < a.length(); i++) {
+      if (a.charAt(i) != b.charAt(i)) {
+        if (foundDiff) return -1;
+
+        foundDiff = true;
+        diffAt = i;
+      }
+    }
+
+    return diffAt;
   }
 }
