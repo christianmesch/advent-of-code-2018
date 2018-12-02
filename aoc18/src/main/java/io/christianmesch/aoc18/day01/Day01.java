@@ -1,9 +1,6 @@
 package io.christianmesch.aoc18.day01;
 
 import io.christianmesch.aoc18.utils.InputUtils;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,18 +13,18 @@ public class Day01 {
   public static void main(String... args) {
     Day01 day = new Day01();
     try {
-      System.out.println(day.puzzle1());
-      System.out.println(day.puzzle2());
+      System.out.println(day.part1());
+      System.out.println(day.part2());
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  private int puzzle1() throws Exception {
+  private int part1() throws Exception {
     return InputUtils.read(INPUT_FILENAME).stream().mapToInt(Integer::valueOf).sum();
   }
 
-  private int puzzle2() throws Exception {
+  private int part2() throws Exception {
     List<Integer> input = InputUtils.read(INPUT_FILENAME).stream().map(Integer::valueOf).collect(Collectors.toList());
     Set<Integer> foundFrequencies = new HashSet<>();
 

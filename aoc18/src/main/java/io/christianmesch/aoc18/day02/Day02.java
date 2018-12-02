@@ -11,13 +11,13 @@ public class Day02 {
   public static void main(String... args) {
     Day02 day = new Day02();
     try {
-      System.out.println(day.puzzle1());
+      System.out.println(day.part1());
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  private int puzzle1() throws Exception {
+  private int part1() throws Exception {
     int twice = 0;
     int thrice = 0;
 
