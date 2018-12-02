@@ -1,7 +1,5 @@
 package io.christianmesch.aoc18.utils;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,7 +9,7 @@ public class InputUtils {
 
   private InputUtils() {}
 
-  public static List<String> read(String filename) throws URISyntaxException, IOException {
+  public static List<String> read(String filename) throws Exception {
     Path inputPath = Paths.get(InputUtils.class.getResource(filename).toURI());
     return Files.readAllLines(inputPath);
   }

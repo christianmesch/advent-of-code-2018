@@ -18,16 +18,16 @@ public class Day01 {
     try {
       System.out.println(day.puzzle1());
       System.out.println(day.puzzle2());
-    } catch (URISyntaxException | IOException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  private int puzzle1() throws URISyntaxException, IOException {
+  private int puzzle1() throws Exception {
     return InputUtils.read(INPUT_FILENAME).stream().mapToInt(Integer::valueOf).sum();
   }
 
-  private int puzzle2() throws IOException, URISyntaxException {
+  private int puzzle2() throws Exception {
     List<Integer> input = InputUtils.read(INPUT_FILENAME).stream().map(Integer::valueOf).collect(Collectors.toList());
     Set<Integer> foundFrequencies = new HashSet<>();
 
