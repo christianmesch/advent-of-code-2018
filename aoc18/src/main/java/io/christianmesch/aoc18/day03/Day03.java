@@ -70,7 +70,7 @@ public class Day03 {
           return new Rectangle(Integer.parseInt(matcher.group(1)), coordinates);
         }).collect(Collectors.toList());
 
-    List<String> singleCoordinates = rectangles.stream()
+    List<String> uniqueCoordinates = rectangles.stream()
         .flatMap(r -> r.coordinates.stream())
         .collect(Collectors.groupingBy(c -> c, Collectors.counting()))
         .entrySet()
@@ -80,7 +80,7 @@ public class Day03 {
         .collect(Collectors.toList());
 
     for (Rectangle rectangle : rectangles) {
-      if (singleCoordinates.containsAll(rectangle.coordinates)) {
+      if (uniqueCoordinates.containsAll(rectangle.coordinates)) {
         return rectangle.id;
       }
     }
@@ -91,7 +91,7 @@ public class Day03 {
   private class Rectangle {
     private final int id;
     private final List<String> coordinates;
-    
+
     private Rectangle(int id, List<String> coordinates) {
       this.id = id;
       this.coordinates = coordinates;
