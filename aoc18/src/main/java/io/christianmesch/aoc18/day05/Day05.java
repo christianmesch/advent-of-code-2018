@@ -1,6 +1,7 @@
 package io.christianmesch.aoc18.day05;
 
 import io.christianmesch.aoc18.utils.InputUtils;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +26,7 @@ public class Day05 {
     Day05 day = new Day05();
     try {
       System.out.println(day.part1());
+      System.out.println(day.part2());
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -34,6 +36,16 @@ public class Day05 {
     String input = InputUtils.read(INPUT_FILENAME).get(0);
 
     return lengthAfterReactions(input);
+  }
+
+  private int part2() throws Exception {
+    String input = InputUtils.read(INPUT_FILENAME).get(0);
+
+    return Arrays.asList("abcdefghijklmnopqrstuvwxyz".split("")).stream()
+        .map(c -> lengthAfterReactions(input.replaceAll(String.format("(?i)%s", c), "")))
+        .sorted()
+        .findFirst()
+        .orElse(-1);
   }
 
   private int lengthAfterReactions(String input) {
