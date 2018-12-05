@@ -41,8 +41,8 @@ public class Day05 {
   private int part2() throws Exception {
     String input = InputUtils.read(INPUT_FILENAME).get(0);
 
-    return Arrays.asList("abcdefghijklmnopqrstuvwxyz".split("")).stream()
-        .map(c -> lengthAfterReactions(input.replaceAll(String.format("(?i)%s", c), "")))
+    return Arrays.asList("abcdefghijklmnopqrstuvwxyz".split("")).parallelStream()
+        .map(c -> lengthAfterReactions(input.replaceAll("(?i)" + c, "")))
         .sorted()
         .findFirst()
         .orElse(-1);
