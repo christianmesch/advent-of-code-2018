@@ -4,6 +4,7 @@ import io.christianmesch.aoc18.utils.InputUtils;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class Day05 {
   private static final String INPUT_FILENAME = "/day5.txt";
@@ -41,7 +42,7 @@ public class Day05 {
   private int part2() throws Exception {
     String input = InputUtils.read(INPUT_FILENAME).get(0);
 
-    return Arrays.asList("abcdefghijklmnopqrstuvwxyz".split("")).parallelStream()
+    return Stream.of("abcdefghijklmnopqrstuvwxyz".split("")).parallel()
         .map(c -> lengthAfterReactions(input.replaceAll("(?i)" + c, "")))
         .sorted()
         .findFirst()
