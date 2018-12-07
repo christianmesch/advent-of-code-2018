@@ -1,7 +1,6 @@
 package io.christianmesch.aoc18.day05;
 
 import io.christianmesch.aoc18.utils.InputUtils;
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
